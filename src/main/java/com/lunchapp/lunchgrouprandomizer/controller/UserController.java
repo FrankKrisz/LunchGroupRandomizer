@@ -1,5 +1,7 @@
 package com.lunchapp.lunchgrouprandomizer.controller;
 
+import com.lunchapp.lunchgrouprandomizer.dto.CreateUserCommand;
+import com.lunchapp.lunchgrouprandomizer.dto.UserInfo;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatusCode;
@@ -15,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
     @PostMapping
-    public ResponseEntity<UserInfo> createDwarf(@Valid @RequestBody CreateUserCommand command) {
+    public ResponseEntity<UserInfo> createUser(@Valid @RequestBody CreateUserCommand command) {
         log.info("Creating User with dto command...");
         UserInfo userfInfo = userService.userCreator(command);
-        log.info("Dwarf created successful!");
+        log.info("User created successful!");
         return new ResponseEntity<>(userInfo, HttpStatusCode.valueOf(201));
     }
 
