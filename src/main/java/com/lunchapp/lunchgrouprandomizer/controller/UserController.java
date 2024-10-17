@@ -26,7 +26,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping
+    @PostMapping("/registration")
     public ResponseEntity<UserInfo> createUser(@Valid @RequestBody CreateUserCommand command) {
         log.info("Creating User with dto command...");
         UserInfo userInfo = userService.userCreator(command);
